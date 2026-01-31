@@ -71,37 +71,10 @@ Python is used selectively to support the SQL analysis by:
 Libraries used:
 - `pandas`
 - `matplotlib`
-
----
-
-## How to Run
-
-### Option A: SQL (recommended)
-The SQL analysis is designed to be run in sequence:
-
-1. **`00_create_tables.sql`**  
-   Creates the base tables and defines the structure of each dataset.
-
-2. **`01_cleaning.sql`**  
-   Cleans and standardises the data, preparing analysis-ready tables.
-
-3. **`02_kpi_core.sql`**  
-   Generates core KPIs and monthly performance metrics.
-
-4. **`03_sms_effectiveness.sql`**  
-   Examines the relationship between SMS usage and revenue at a client-month level.
-
-5. **`04_churn_signals.sql`**  
-   Compares churned and retained customers to identify behavioural differences.
-
-### Option B: Python (optional)
-Python notebooks can be run for data validation and exploratory analysis using:
-- `pandas`
-- `matplotlib`
-
+  
 ---
 ## Tools & Technologies
-- SQL (Postgres-compatible)
+- SQL (SQLite; logic transferable to Postgres)
 - Python (pandas, matplotlib)
 - Dashboards (maintained separately)
 - GitHub for version control and documentation
