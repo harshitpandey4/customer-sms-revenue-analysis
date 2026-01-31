@@ -1,0 +1,9 @@
+# Ignore raw data files
+data/
+
+# Ignore generated outputs
+outputs/
+
+# Python cache files
+__pycache__/
+*.pyc
