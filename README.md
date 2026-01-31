@@ -1,104 +1,120 @@
 # Customer SMS Revenue Analysis
 
 ## Overview
-This project is an end-to-end **customer analytics case study** analysing SMS engagement, revenue trends, and churn behaviour using anonymised transactional data.  
-The goal is to demonstrate how raw operational data can be transformed into **clear, actionable insights** for both technical and non-technical stakeholders.
+This project is an end-to-end **customer analytics case study** analysing **SMS engagement**, **revenue trends**, and **churn behaviour** using anonymised transactional data.  
+The goal is to show how raw operational data can be transformed into **clear, actionable insights** for both technical and non-technical stakeholders.
 
 The analysis combines:
-- **SQL** for data cleaning, joins, and KPI development  
-- **Basic Python** for data validation and exploratory analysis  
-- **Dashboards** to communicate insights clearly to non-technical business users
+- **SQL** for data cleaning, joins, and KPI development
+- **Basic Python** for validation and exploratory analysis
+- **Dashboards** to communicate insights clearly to business users
 
 > **Note:** This is a portfolio project. All datasets are anonymised and do not represent real customers or businesses.
 
 ---
 
 ## Business Questions
-The analysis focuses on answering practical business questions such as:
-- How does SMS usage and SMS-generated revenue trend over time?
+- How do SMS usage and SMS-generated revenue trend over time?
 - What is the revenue generated per SMS?
-- Which SMS message types contribute most to overall usage?
-- Do churned customers show different SMS and revenue behaviour compared to retained customers?
+- Which message types contribute most to overall SMS volume?
+- Do churned customers show different SMS/revenue behaviour compared to retained customers?
 - How can insights be communicated clearly to non-technical stakeholders?
 
 ---
 
 ## Datasets
-The project uses four anonymised datasets:
+This project uses four anonymised datasets:
 
 - **clients.csv**  
-  Client-level attributes including region, SMS cost, go-live date, billing currency, and churn flag.
-
+  Client attributes: region, SMS cost, go-live date, billing currency, churn flag.
 - **revenue.csv**  
   Monthly SMS revenue per client.
-
 - **sms.csv**  
-  Monthly SMS volume per client, broken down by message type.
-
+  Monthly SMS volume per client, split by message type.
 - **appointment.csv**  
-  Monthly appointment activity per client (used for contextual analysis).
+  Monthly appointment activity per client (contextual signal).
+
+### Data Notes
+- Some datasets cover different date ranges. For multi-table analysis, results are aligned to the overlapping months where required.
+- Message type values are standardised during cleaning (e.g., casing/spacing).
 
 ---
 
 ## Data Cleaning & Preparation
-Key preparation steps include:
-- Removing records with missing client identifiers
-- Standardising SMS message type categories
-- Aligning date ranges where required for multi-table analysis
-- Creating client-month level aggregates for consistent KPI calculation
+- Removed records with missing client identifiers
+- Standardised message type categories
+- Aligned date ranges for joined analysis
+- Built client-month aggregates for consistent KPI calculation
 
 ---
 
 ## Analysis Approach
 
 ### SQL
-SQL is used as the primary analysis tool to:
-- Join multiple datasets at a client-month level
-- Build core KPIs such as total SMS sent, total revenue, and revenue per SMS
-- Compare behaviour between churned and non-churned customers
-- Produce clean output tables ready for visualisation
+SQL is used to:
+- Join datasets at a client-month level
+- Build KPIs (SMS sent, SMS revenue, revenue per SMS)
+- Compare churned vs non-churned cohorts
+- Produce clean output tables for visualisation
 
 ### Python (Basic)
 Python is used selectively for:
-- Data validation and sanity checks
-- Exploratory trend analysis
-- Simple visualisations to support findings
+- Data validation checks
+- Exploratory analysis
+- Simple trend visuals
 
-Libraries used:
+Libraries:
 - `pandas`
 - `matplotlib`
 
-### Dashboards
-Dashboards are created to:
-- Translate analytical findings into clear visuals
-- Support understanding for **non-technical stakeholders**
-- Enable data-driven decision-making without requiring SQL or Python knowledge
+---
+
+## Dashboards (for non-technical stakeholders)
+Dashboards were created to translate findings into clear visuals for business users.
+
+**Suggested views:**
+- **Executive Summary:** total SMS sent, total revenue, revenue per SMS, trend line by month
+- **Message Type Mix:** share of SMS by message type over time
+- **Churn Comparison:** churned vs retained behaviour (volume + revenue)
+
+> Add screenshots here:
+- `dashboards/executive_summary.png`
+- `dashboards/message_type_mix.png`
+- `dashboards/churn_comparison.png`
 
 ---
 
 ## Key Insights (Example)
-- SMS volume and revenue show clear monthly trends and seasonality.
-- Certain message types account for a disproportionately high share of SMS usage.
-- Revenue per SMS varies over time, indicating opportunities for pricing or usage optimisation.
-- Churned clients display different engagement and revenue patterns compared to retained clients.
-
-(*Detailed insights are documented in the analysis outputs and dashboards.*)
+- SMS volume and revenue show monthly trends and seasonality.
+- Certain message types account for a disproportionately high share of usage.
+- Revenue per SMS varies over time, indicating optimisation opportunities.
+- Churned clients show different engagement patterns than retained clients.
 
 ---
+
+## How to Run
+
+### Option A: SQL (recommended)
+1. Load CSVs into your database (Postgres-compatible).
+2. Run scripts in order:
+   - `sql/00_create_tables.sql`
+   - `sql/01_cleaning.sql`
+   - `sql/02_kpi_core.sql`
+   - `sql/03_sms_effectiveness.sql`
+   - `sql/04_churn_signals.sql`
+
+### Option B: Python (basic exploration)
+1. Install dependencies:
+   - `pip install pandas matplotlib`
+2. Run notebooks inside `/python` for validation + exploratory analysis.
+
+---
+
 ## Tools & Technologies
 - SQL (Postgres-compatible)
 - Python (pandas, matplotlib)
-- Data visualisation dashboards
+- Dashboards (screenshots/exports)
 - GitHub for version control and documentation
-
----
-
-## Stakeholder Communication
-A key focus of this project is **communicating insights effectively**.  
-Dashboards and summaries are designed to ensure that non-technical stakeholders can:
-- Understand performance trends
-- Identify risks and opportunities
-- Make informed, data-driven decisions
 
 ---
 
