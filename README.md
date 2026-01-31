@@ -85,3 +85,22 @@ Dashboards are created to:
 (*Detailed insights are documented in the analysis outputs and dashboards.*)
 
 ---
+## Tools & Technologies
+- SQL (Postgres-compatible)
+- Python (pandas, matplotlib)
+- Data visualisation dashboards
+- GitHub for version control and documentation
+
+---
+
+## Stakeholder Communication
+A key focus of this project is **communicating insights effectively**.  
+Dashboards and summaries are designed to ensure that non-technical stakeholders can:
+- Understand performance trends
+- Identify risks and opportunities
+- Make informed, data-driven decisions
+
+---
+
+## Author
+Created as a portfolio project to demonstrate business analysis, data analytics, and stakeholder communication skills.
